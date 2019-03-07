@@ -42,6 +42,8 @@ const registro = new Vue({
                 if(object[i].correo == this.correoSesion & object[i].clave == this.claveSesion){
                     console.log('sesion iniciada')
                     localStorage.setItem('indice', JSON.stringify(this.correoSesion))
+                    location.href="divisas.html"
+
                     break
                 } 
             }
