@@ -6,10 +6,19 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="estilos/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     
 </head>
+
+<header>
+  <nav class="nav">
+    <a class="nav-link active" href="page2.html">Favoritos</a>
+    <a class="nav-link" href="index.html" >cerrar sesion</a>
+  </nav>
+</header>
+
 <body>
-  
 <script type="text/x-template" id="grid-template">
     <table>
       <thead>
@@ -38,7 +47,7 @@
     <form id="search"> Buscar <input name="query" v-model="searchQuery">
       
     </form>
-    <button @click="favoritos()">Add 1</button>
+    <button class="btn btn-success" @click="favoritos()">Añadir a favoritos</button>
     <demo-grid
       :heroes="gridData"
       :columns="gridColumns"

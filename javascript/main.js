@@ -97,14 +97,19 @@ request.onload = function () {
         },
         mounted(){
           this.agregar();
+          this.alerta();
         },
         methods:{
-         
+         alerta(){
+          alert("Para ingresar un nuevo favorito debe ingresar  en el campo search el'Symbol' exactamente igual a como aparece en la tabla de datos")
+         },
           agregar(){
+
             for(i = 1; i<json.length;i++){
               this.gridData.push({Symbol: auxiliar[i].symbol, Price: auxiliar[i].price, Bid:auxiliar[i].bid, Ask:auxiliar[i].ask, Timestamp:auxiliar[i].timestamp})
             }
           },
+          
           favoritos(){
             existe=false
             var aux = this.searchQuery.toUpperCase()

@@ -11,10 +11,13 @@ const registro = new Vue({
         newNombre:'', newEdad:'', newTelefono:'', newCorreo:'',newClave:'',
         correoSesion:'', claveSesion:''
     },
+    mounted(){
+        this.cerrarSesiones();
+      },
     methods:{
         
         agregarUsuario(){
-            
+            usuarios=JSON.parse(localStorage.getItem("myData"))
             this.usuarios.push({
                 nombre: this.newNombre,
                 edad: this.newEdad,
@@ -38,15 +41,22 @@ const registro = new Vue({
         }, 
         login(){
             var object = JSON.parse(localStorage.getItem('myData'));
+            var registrado = false;
             for(i=0; i<object.length; i++){
                 if(object[i].correo == this.correoSesion & object[i].clave == this.claveSesion){
                     console.log('sesion iniciada')
                     localStorage.setItem('indice', JSON.stringify(this.correoSesion))
                     location.href="divisas.html"
-
+                    registrado=true
                     break
                 } 
             }
+            if(registrado==false){
+                alert("Usuario no registrado")
+            }
+        },
+        cerrarSesiones(){
+            localStorage.setItem('indice', JSON.stringify(null))
         },
         edit: function(index){
             console.log('editar ', index)
