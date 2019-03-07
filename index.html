@@ -35,15 +35,17 @@
   
   <!-- demo root element -->
   <div id="demo">
-    <form id="search">
-      Search <input name="query" v-model="searchQuery">
+    <form id="search"> Buscar <input name="query" v-model="searchQuery">
+      
     </form>
+    <button @click="favoritos()">Add 1</button>
     <demo-grid
       :heroes="gridData"
       :columns="gridColumns"
       :filter-key="searchQuery">
     </demo-grid>
   </div>
+ 
       <script src="https://unpkg.com/vue/dist/vue.js"></script>
       <script src="javascript/main.js"></script>
 </body>

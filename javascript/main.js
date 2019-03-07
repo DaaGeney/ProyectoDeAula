@@ -4,6 +4,7 @@ var requestListado = new XMLHttpRequest();
 
 // Open a new connection, using the GET request on the URL endpoint
 var string
+
 requestListado.open('GET', 'https://forex.1forge.com/1.0.3/symbols?api_key=CN2qvr0mUhY8UHPwK505ij5Q82Ig2zSB', true);
 requestListado.onload = function () {
   string = requestListado.responseText;
@@ -15,6 +16,7 @@ requestListado.send();
 request.open('GET', 'https://forex.1forge.com/1.0.3/quotes?pairs=' + string + '&api_key=CN2qvr0mUhY8UHPwK505ij5Q82Ig2zSB', true);
 
 auxiliar = []
+favoritosD=[]
 request.onload = function () {
   if (request.readyState === 4) {
     if (request.status === 200) {
@@ -37,6 +39,7 @@ request.onload = function () {
           var sortOrders = {}
           this.columns.forEach(function (key) {
             sortOrders[key] = 1
+            
           })
           return {
             sortKey: '',
@@ -84,26 +87,40 @@ request.onload = function () {
         el: '#demo',
         data: {
           searchQuery: '',
-          gridColumns: ['Symbol', 'Price', 'Bid','Ask','Timestamp'],
+          gridColumns: ['Symbol', 'Price', 'Bid','Ask','Timestamp', ],
           gridData: [
             
-            { Symbol: auxiliar[0].symbol, Price: auxiliar[0].price, Bid:auxiliar[0].bid, Ask:auxiliar[0].ask, Timestamp:auxiliar[0].timestamp }
+            { Symbol: auxiliar[0].symbol, Price: auxiliar[0].price, Bid:auxiliar[0].bid, Ask:auxiliar[0].ask, Timestamp:auxiliar[0].timestamp  }
           
           ]
+          
         },
         mounted(){
           this.agregar();
         },
         methods:{
+         
           agregar(){
             for(i = 1; i<json.length;i++){
               this.gridData.push({Symbol: auxiliar[i].symbol, Price: auxiliar[i].price, Bid:auxiliar[i].bid, Ask:auxiliar[i].ask, Timestamp:auxiliar[i].timestamp})
             }
+          },
+          favoritos(){
+            existe=false
+            var aux = this.searchQuery.toUpperCase()
+            for(i = 0;i<auxiliar.length;i++){
+              if(aux==auxiliar[i].symbol){
+                favoritosD.push(auxiliar[i])
+                break
+              }
+            }
+            localStorage.setItem("favoritos",JSON.stringify(favoritosD))
+            console.log(favoritosD)
           }
         }
       })
       
-      console.log(auxiliar[0])
+      //console.log(auxiliar[0])
       // aux = request.responseText
       //console.log(aux)
     }
