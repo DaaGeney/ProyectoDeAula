@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="estilos/main.css">
+    
+</head>
+<body>
+  <div class="Encabezado">
+    <header id="main-header">
+
+      <a id="logo-header" href="#">
+        <span class="site-name">Tokyo Ghoul</span>
+        <span class="site-desc">東京喰種トーキョーグール</span>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="favoritos.html">Favoritos</a></li>
+          <li><a href="Personajes.html">Personajes Principales</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+<script type="text/x-template" id="grid-template">
+    <table>
+      <thead>
+        <tr>
+          <th v-for="key in columns"
+            @click="sortBy(key)"
+            :class="{ active: sortKey == key }">
+            {{ key | capitalize }}
+            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="entry in filteredHeroes">
+          <td v-for="key in columns">
+            {{entry[key]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  
+  <!-- demo root element -->
+  <div id="demo">
+    <form id="search"> Buscar <input name="query" v-model="searchQuery">
+      
+    </form>
+    <button @click="favoritos()">Add 1</button>
+    <demo-grid
+      :heroes="gridData"
+      :columns="gridColumns"
+      :filter-key="searchQuery">
+    </demo-grid>
+  </div>
+ 
+      <script src="https://unpkg.com/vue/dist/vue.js"></script>
+      <script src="javascript/main.js"></script>
+</body>
+</html>
