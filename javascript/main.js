@@ -114,7 +114,8 @@ request.onload = function () {
                 break
               }
             }
-            localStorage.setItem("favoritos",JSON.stringify(favoritosD))
+            var indice=JSON.parse(localStorage.getItem("indice"))
+            localStorage.setItem("favoritos" + indice,JSON.stringify(favoritosD))
             console.log(favoritosD)
           }
         }

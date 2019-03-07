@@ -57,3 +57,92 @@ body {
     border-right: 4px solid transparent;
     border-top: 4px solid #fff;
   }
+  .personajes{
+    width: 270px;
+    height: 400px;
+  }
+  .centrado{
+    margin: 0px auto;
+    display: block;
+    width: 250px;
+  }
+  #main-header a {
+    color: white;
+  }
+  p{
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  div {
+    padding: 0px 10px 50px 10px ;
+    background: #ffffff;
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 1.5em; /* Espacio de interlineado*/
+    padding-top: 40px; /* Relleno superior igual a la altura de la cabecera*/
+    text-align: justify;
+  }
+  
+  /*
+  * Logo
+  */
+  #logo-header {
+  float: left;
+  padding: 15px 0 0 20px;
+  text-decoration: none;
+  }
+  #logo-header:hover {
+    color: #0b76a6;
+  }
+  
+  #logo-header .site-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+  
+  #logo-header .site-desc {
+    display: block;
+    font-weight: 300;
+    font-size: 0.8em;
+    color: #999;
+  }
+  
+  
+  /*
+  * Navegación
+  */
+  nav {
+  float: right;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-right: 20px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    line-height: 80px;
+  }
+      
+  nav ul li a {
+    display: block;
+    padding: 0 10px;
+  }
+      
+  nav ul li a:hover {
+    background: #0b76a6;
+  }
+  
+  #main-header {
+    background: #333;
+     color: white;
+     height: 80px;
+    
+     width: 69%; /*  cabecera ocupe un porcentaje del ancho de la página */
+    top:0%; /* cabezara pegada a borde superior*/
+     position: fixed; /* cabecera tenga una posición fija */
+  }
+  
