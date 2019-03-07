@@ -48,11 +48,27 @@ const registro = new Vue({
         },
         edit: function(index){
             console.log('editar ', index)
+            console.log(index)
             this.newNombre = this.usuarios[index].nombre
             this.newEdad = this.usuarios[index].edad
             this.newTelefono = this.usuarios[index].telefono
             this.newCorreo = this.usuarios[index].correo
             this.newClave = this.usuarios[index].clave
+   
+            document.getElementById('btnEditar').style.display = 'inline'
+            document.getElementById('btnRegistrar').style.display = 'none'
+            this.registro = 'Edicion'
+        },
+        confirmEdition: function(index){
+            console.log(index)
+            this.usuarios[index].nombre = this.newNombre
+            this.usuarios[index].edad = this.newEdad
+            this.usuarios[index].telofono = this.newTelefono
+            this.usuarios[index].correo = this.newCorreo
+            this.usuarios[index].clave = this.newClave
+
+            document.getElementById('btnEditar').style.display = 'none'
+            document.getElementById('btnRegistrar').style.display = 'inline'
             localStorage.setItem('myData' ,JSON.stringify(this.usuarios));
         },
         eliminar: function(index){
