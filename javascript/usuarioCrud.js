@@ -37,8 +37,9 @@ const registro = new Vue({
             }
         }, 
         login(){
-            for(i=0; i<create.object.length; i++){
-                if(create.object[i].correo == this.correoSesion & create.object[i].clave == this.claveSesion){
+            var object = JSON.parse(localStorage.getItem('myData'));
+            for(i=0; i<object.length; i++){
+                if(object[i].correo == this.correoSesion & object[i].clave == this.claveSesion){
                     console.log('sesion iniciada')
                     localStorage.setItem('indice', JSON.stringify(this.correoSesion))
                     break
@@ -60,10 +61,6 @@ const registro = new Vue({
         }
         
     }, 
-    create: function(){
-        var object = JSON.parse(localStorage.getItem('myData'));
-        
-
-    }
+   
 })
 
